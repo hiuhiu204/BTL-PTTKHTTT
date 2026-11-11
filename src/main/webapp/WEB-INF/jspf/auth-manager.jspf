@@ -1,0 +1,15 @@
+<%@ page import="com.restman.model.Manager" %>
+<%
+    boolean authorized = false;
+    Manager manager = null;
+    Object memberObject = session.getAttribute("member");
+    if (memberObject instanceof Manager) {
+        authorized = true;
+        manager = (Manager) memberObject;
+        request.setAttribute("manager", manager);
+    } else {
+        // Chua dang nhap hoac sai vai tro -> ve trang dang nhap va dung trang hien tai.
+        response.sendRedirect(request.getContextPath() + "/view/Login.jsp");
+        return;
+    }
+%>

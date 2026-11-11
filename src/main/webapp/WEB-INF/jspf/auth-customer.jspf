@@ -1,0 +1,15 @@
+<%@ page import="com.restman.model.Customer" %>
+<%
+    boolean authorized = false;
+    Customer customer = null;
+    Object memberObject = session.getAttribute("member");
+    if (memberObject instanceof Customer) {
+        authorized = true;
+        customer = (Customer) memberObject;
+        request.setAttribute("customer", customer);
+    } else {
+        // Chua dang nhap hoac sai vai tro -> ve trang dang nhap va dung trang hien tai.
+        response.sendRedirect(request.getContextPath() + "/view/Login.jsp");
+        return;
+    }
+%>

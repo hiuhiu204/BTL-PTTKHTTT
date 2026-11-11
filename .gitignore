@@ -1,0 +1,9 @@
+# Maven
+target
+
+# IntelliJ IDEA
+.idea
+.iml
+
+# Database properties (bảo mật mật khẩu database thực tế của bạn)
+# Nếu muốn đẩy file mẫu, bạn có thể tạo db.properties.example thay thế
