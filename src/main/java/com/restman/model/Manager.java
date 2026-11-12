@@ -46,7 +46,7 @@ public class Manager extends Employee {
     }
 
     public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
+        this.dishes = dishes != null ? dishes : new ArrayList<>();
     }
 
     public List<Combo> getCombos() {
@@ -54,6 +54,6 @@ public class Manager extends Employee {
     }
 
     public void setCombos(List<Combo> combos) {
-        this.combos = combos;
+        this.combos = combos != null ? combos : new ArrayList<>();
     }
 }

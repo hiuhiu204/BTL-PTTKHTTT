@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" %>
 <%@ page import="com.restman.model.Manager" %>
 <%
     boolean authorized = false;

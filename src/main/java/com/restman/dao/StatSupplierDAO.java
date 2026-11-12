@@ -22,6 +22,8 @@ public class StatSupplierDAO extends DAO {
      * Tong luong nhap (SUM(quantity)) cua tung nha cung cap CO PHAT SINH NHAP
      * trong khoang [startDate, endDate] (bao gom ca hai dau mut).
      * Nha cung cap khong co lan nhap nao trong ky khong xuat hien (INNER JOIN).
+     * Ket qua duoc sap xep theo tong luong nhap tu cao xuong thap; khi bang nhau
+     * thi sap theo supplierID tang dan de thu tu o dinh.
      *
      * @param startDate ngay dau ky (bat buoc khac null; JSP da kiem tra truoc khi goi)
      * @param endDate   ngay cuoi ky (bat buoc khac null; JSP da kiem tra truoc khi goi)
@@ -37,7 +39,7 @@ public class StatSupplierDAO extends DAO {
                 + "JOIN tblImportDetail  d ON d.tblImportInvoiceid = i.id "
                 + "WHERE i.createdDate BETWEEN ? AND ? "
                 + "GROUP BY s.id, s.supplierID, s.supplierName, s.address, s.phoneNumber, s.note "
-                + "ORDER BY s.supplierID";
+                + "ORDER BY totalImportAmount DESC, s.supplierID";
 
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setDate(1, startDate == null ? null : new java.sql.Date(startDate.getTime()));

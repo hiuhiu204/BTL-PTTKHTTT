@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="com.restman.dao.MemberDAO" %>
 <%@ page import="com.restman.model.Member" %>
 <%@ page import="com.restman.model.Customer" %>

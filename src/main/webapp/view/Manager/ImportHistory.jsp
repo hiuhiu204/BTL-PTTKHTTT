@@ -84,6 +84,8 @@
     request.setAttribute("errorMessage", errorMessage);
     request.setAttribute("startDateStr", startDateStr);
     request.setAttribute("endDateStr", endDateStr);
+    request.setAttribute("startDate", startDate);
+    request.setAttribute("endDate", endDate);
 %>
 
 <nav class="breadcrumb" aria-label="Đường dẫn">
@@ -121,10 +123,8 @@
         <div class="summary__item">
             <span class="summary__label">Khoảng thời gian</span>
             <span class="summary__value">
-                <fmt:parseDate value="${startDateStr}" pattern="yyyy-MM-dd" var="startDateDisplay"/>
-                <fmt:parseDate value="${endDateStr}" pattern="yyyy-MM-dd" var="endDateDisplay"/>
-                <fmt:formatDate value="${startDateDisplay}" pattern="dd/MM/yyyy"/> -
-                <fmt:formatDate value="${endDateDisplay}" pattern="dd/MM/yyyy"/>
+                <fmt:formatDate value="${startDate}" pattern="dd/MM/yyyy"/> -
+                <fmt:formatDate value="${endDate}" pattern="dd/MM/yyyy"/>
             </span>
         </div>
     </div>
